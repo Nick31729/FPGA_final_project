@@ -49,7 +49,6 @@ CLK : 為內建的clock<br>
 clear、Left、Right : 接到藍色按鈕<br>
 L1、L2、L3、pause : 接到紅色4-bit SW<br>
 
-*** 請說明各 I/O 變數接到哪個 FPGA I/O 裝置，例如: button, button2 -> 接到 4-bit SW<br><br>
 *** 請加強說明程式邏輯<br>
 <br>Demo video:<br>
 ----------------
