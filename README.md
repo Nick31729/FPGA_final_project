@@ -35,7 +35,7 @@ output beep,//sound
 input CLK, clear, Left, Right,
 input L1,L2,L3,pause
 ```
-DATA_R, DATA_G, DATA_B接到8X8顯示器<br>
+<>DATA_R, DATA_G, DATA_B接到8X8顯示器<br>
 d7_1接到七段顯示器<br>
 COMM接到8X8顯示器<br>
 Life接到LED燈<br>
