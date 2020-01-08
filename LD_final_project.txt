@@ -1,34 +1,34 @@
 module LD_final_project(output reg [7:0] DATA_R, DATA_G, DATA_B,
 								output reg [6:0] d7_1, 
-								output reg [2:0] COMM, 
+								output reg [2:0] COMM, //LED 8*8
 								output reg [4:0] Life,
-								output reg [1:0] COMM_CLK,
-								output EN,
-								output  beep,
+								output reg [1:0] COMM_CLK,//7 segment's enable
+								output EN,//LED
+								output beep,//sound
 								input CLK, clear, Left, Right,
 								input L1,L2,L3,pause
 								);
-	reg [7:0] plate [7:0];
-	reg [7:0] people [7:0];
+	reg [7:0] plate [7:0];//掉落物
+	reg [7:0] people [7:0];//user
 	reg [6:0] seg1, seg2;
-	reg [3:0] bcd_s,bcd_m;
+	reg [3:0] bcd_s,bcd_m;//個 十位
 	reg [2:0] random01, random02, random03,random04, r, r1, r2,r3;
-	reg left, right, temp,beepopen;
-	segment7 S0(bcd_s, A0,B0,C0,D0,E0,F0,G0);
+	reg left, right, temp,beepopen,flag,flag1;
+	segment7 S0(bcd_s, A0,B0,C0,D0,E0,F0,G0);//input bcd_s
 	segment7 S1(bcd_m, A1,B1,C1,D1,E1,F1,G1);
 	divfreq div0(CLK, CLK_div);
 	divfreq1 div1(CLK, CLK_time);
 	divfreq2 div2(CLK, CLK_mv);
 	divfreq3 div3(CLK, CLK_beep);
 	byte line, count, count1;
-	integer a, b, c,d, touch;
+	integer a, b, c,d,touch;//flag左下，flag1右下
 
 //初始值
 	initial
 		begin
 			bcd_m = 0;
 			bcd_s = 0;
-			line = 3;
+			line = 3;//人的位置
 			random01 = (5*random01 + 3)%16;
 			r = random01 % 8;
 			random02 = (5*(random02+1) + 3)%16;
@@ -40,7 +40,7 @@ module LD_final_project(output reg [7:0] DATA_R, DATA_G, DATA_B,
 			a = 0;
 			b = 0;
 			c = 0;
-			d =0 ;
+			d=0;
 			touch = 0;
 			DATA_R = 8'b11111111;
 			DATA_G = 8'b11111111;
@@ -77,7 +77,7 @@ always@(posedge CLK_beep)
 //7段顯示器的視覺暫留除
 always@(posedge CLK_div)
 	begin
-		seg1[0] = A0;
+		seg1[0] = A0;//bcd_s
 		seg1[1] = B0;
 		seg1[2] = C0;
 		seg1[3] = D0;
@@ -85,7 +85,7 @@ always@(posedge CLK_div)
 		seg1[5] = F0;
 		seg1[6] = G0;
 		
-		seg2[0] = A1;
+		seg2[0] = A1;//bcd_m
 		seg2[1] = B1;
 		seg2[2] = C1;
 		seg2[3] = D1;
@@ -93,14 +93,14 @@ always@(posedge CLK_div)
 		seg2[5] = F1;
 		seg2[6] = G1;
 		
-		if(count1 == 0)
+		if(count1 == 0)//顯示個位
 			begin
 				d7_1 <= seg1;
-				COMM_CLK[1] <= 1'b1;
-				COMM_CLK[0] <= 1'b0;
-				count1 <= 1'b1;
+				COMM_CLK[1] <= 1'b1;//不亮
+				COMM_CLK[0] <= 1'b0;//亮
+				count1 <= 1'b1;//將顯示十位
 			end
-		else if(count1 == 1)
+		else if(count1 == 1)//顯示十位
 			begin
 				d7_1 <= seg2;
 				COMM_CLK[1] <= 1'b0;
@@ -136,17 +136,17 @@ always@(posedge CLK_time, posedge clear)
 //主畫面的視覺暫留	
 always@(posedge CLK_div)
 	begin
-		if(count >= 7)
+		if(count >= 7)//依序點亮0~7排
 			count <= 0;
 		else
 			count <= count + 1;
-		COMM = count;
+		COMM = count;//控制顯示哪一排
 		EN = 1'b1;
-		if(touch < 5)
+		if(touch < 5)//遊戲進行中
 			begin
 				DATA_G <= plate[count];
 				DATA_R <= people[count];
-				if(touch == 0)
+				if(touch == 0)//LED
 					Life <= 5'b11111;
 				else if(touch == 1)
 					Life <= 5'b11110;
@@ -216,7 +216,7 @@ always@(posedge CLK_mv)
 		if(bcd_m>0)
 		begin
 		beepopen<=1;
-		people[0] = 8'b11111111;
+		people[0] = 8'b11111111;//將人消除
 		people[1] = 8'b11111111;
 		people[2] = 8'b11111111;
 		people[3] = 8'b11111111;
@@ -224,7 +224,7 @@ always@(posedge CLK_mv)
 		people[5] = 8'b11111111;
 		people[6] = 8'b11111111;
 		people[7] = 8'b11111111;
-		plate[0] = 8'b11011011;
+		plate[0] = 8'b11011011;//WIN :)
 		plate[1] = 8'b10011101;
 		plate[2] = 8'b01011011;
 		plate[3] = 8'b01011111;
@@ -306,7 +306,7 @@ always@(posedge CLK_mv)
 						line = line + 1;
 						
 					end
-				if((left == 1) && (line != 0))
+				if((left == 1) && (line != 0))//先消再亮
 					begin
 						beepopen<=1;
 						people[line][6] = 1'b1;
@@ -317,7 +317,7 @@ always@(posedge CLK_mv)
 				people[line][6] = 1'b0;
 				people[line][7] = 1'b0;
 		
-				if(plate[line][6] == 0)
+				if(plate[line][6] == 0)//撞到(在人的地方亮)
 					begin
 						touch = touch + 1;
 						plate[r][6] = 1'b1;
@@ -569,6 +569,9 @@ always@(posedge CLK_mv)
 		begin
 		if(touch < 5)
 			begin
+			flag=0;
+			flag1=0;
+			
 				if(a == 0)//go left down
 					begin
 						plate[r][a] = 1'b0;
@@ -578,10 +581,14 @@ always@(posedge CLK_mv)
 						begin
 							plate[r][a-1] = 1'b1;
 							if(r==0)
+							begin 
+							flag=1;
+							end
+							if(flag==1)
 							begin
 							r=r+1;
 							end
-							else
+							if(flag==0)
 							begin
 							r=r-1;
 							end
@@ -594,6 +601,7 @@ always@(posedge CLK_mv)
 						random01 = (5*random01 + 3)%16;
 						r = random01 % 8;
 						a = 0;
+						flag=0;
 					end
 /////////////////////////////////////////	
 			//fall object 2 go right down
@@ -605,11 +613,15 @@ always@(posedge CLK_mv)
 				else if (b > 0 && b <= 7)
 					begin
 						plate[r1][b-1] = 1'b1;
-						if(r==7)
+						if(r1==7)
+						begin
+						flag1=1;
+						end
+						if(flag1==1)
 						begin
 						r1=r1-1;
 						end
-						else
+						if(flag1==0)
 						begin
 						r1=r1+1;
 						end
@@ -622,6 +634,7 @@ always@(posedge CLK_mv)
 						random02 = (5*(random01+1) + 3)%16;
 						r1 = random02 % 8;
 						b = 0;
+						flag1=0;
 					end
 /////////////////////////////////////////		
 			//fall object 3
@@ -642,6 +655,28 @@ always@(posedge CLK_mv)
 						random03= (5*(random01+2) + 3)%16;
 						r2 = random03 % 8;
 						c = 0;
+					end
+				if(d == 0)//2x1y
+					begin
+						plate[r3][d] = 1'b0;
+						plate[r3+1][d] = 1'b0;
+						d = d+1;
+					end
+				else if (d > 0 && d <= 7)
+					begin
+						plate[r3][d-1] = 1'b1;
+						plate[r3+1][d-1] = 1'b1;
+						plate[r3][d] = 1'b0;
+						plate[r3+1][d] = 1'b0;
+						d = d+1;
+					end
+				else if(d == 8) 
+					begin
+						plate[r3][d-1] = 1'b1;
+						plate[r3+1][d-1] = 1'b1;
+						random04 = (5*(random04+4) + 3)%16;
+						r3 = random04 % 8;
+						d = 0;
 					end
 /////////////////////////////////////////	
 			//people move		
@@ -670,10 +705,12 @@ always@(posedge CLK_mv)
 						plate[r1][6] = 1'b1;
 						
 						plate[r2][6] = 1'b1;
-						
+						plate[r3][6]=1'b1;
+						plate[r3+1][6]=1'b1;
 						a = 8;
 						b = 8;
 						c = 8;
+						d = 8;
 					end
 				else if (plate[line][7] == 0)
 					begin
@@ -684,9 +721,12 @@ always@(posedge CLK_mv)
 						plate[r1][7] = 1'b1;
 						
 						plate[r2][7] = 1'b1;
+						plate[r3][7]=1'b1;
+						plate[r3+1][7]=1'b1;
 						a = 8;
 						b = 8;
 						c = 8;
+						d = 8;
 						
 					end
 				
