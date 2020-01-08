@@ -44,6 +44,7 @@ EN接到8x8的enable<br>
 beep接到蜂鳴器<br>
 CLK為內建的clock，clear、Left、Right接到4-bit SW<br>
 L1、L2、L3、pause接到紅色指撥開關<br>
+
 *** 請說明各 I/O 變數接到哪個 FPGA I/O 裝置，例如: button, button2 -> 接到 4-bit SW<br><br>
 *** 請加強說明程式邏輯<br>
 <br>Demo video:<br>
