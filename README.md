@@ -3,9 +3,9 @@ FPGA_Final_Project
 
 Authors:<br>
 -------------
-107321013 107321043  <br>
+107321013 107321043<br>
 
-Input/Output unit:<br>
+<br>Input/Output unit:<br>
 ---------------------
 
 功能說明:<br>
