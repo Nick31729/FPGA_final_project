@@ -3,8 +3,8 @@ FPGA_Final_Project
 
 Authors:<br>
 -------------
-107321013 107321043<br>
-     <br>
+107321013 107321043  <br>
+11
 Input/Output unit:<br>
 ---------------------
 
