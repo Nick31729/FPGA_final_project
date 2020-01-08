@@ -1,8 +1,11 @@
 FPGA_Final_Project
 ==================
 
-Authors: 107321013 107321043<br>
+Authors: <br>
 -------------
+
+107321013 107321043<br>
+
 Input/Output unit:要放圖片<br>
 ---------------------
 INPUT:  clear,左,右,三顆按鍵選關卡,最右邊pause<br>
