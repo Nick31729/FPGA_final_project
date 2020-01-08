@@ -35,15 +35,16 @@ output beep,//sound
 input CLK, clear, Left, Right,
 input L1,L2,L3,pause
 ```
-<br>DATA_R, DATA_G, DATA_B接到8X8顯示器<br>
-d7_1接到七段顯示器<br>
-COMM接到8X8顯示器<br>
-Life接到LED燈<br>
-COMM_CLK接到七段顯示器的enable<br>
-EN接到8x8的enable<br>
-beep接到蜂鳴器<br>
-CLK為內建的clock，clear、Left、Right接到4-bit SW<br>
-L1、L2、L3、pause接到紅色指撥開關<br>
+<br>DATA_R, DATA_G, DATA_B : 接到8X8顯示器<br>
+d7_1 : 接到七段顯示器<br>
+COMM : 接到8X8顯示器<br>
+Life : 接到LED燈<br>
+COMM_CLK : 接到七段顯示器的enable<br>
+EN : 接到8x8的enable<br>
+beep : 接到蜂鳴器<br>
+CLK : 為內建的clock<br>
+clear、Left、Right : 接到藍色按鈕<br>
+L1、L2、L3、pause : 接到紅色4-bit SW<br>
 
 *** 請說明各 I/O 變數接到哪個 FPGA I/O 裝置，例如: button, button2 -> 接到 4-bit SW<br><br>
 *** 請加強說明程式邏輯<br>
