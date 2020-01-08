@@ -5,13 +5,13 @@ Authors: 107321013 107321043<br>
 -------------
 Input/Output unit:要放圖片<br>
 ---------------------
-input:clear,左,右,三顆按鍵選關卡,最右邊pause<br>
+INPUT:clear,左,右,三顆按鍵選關卡,最右邊pause<br>
 clear:清除版面，重置設定<br>
 左,右:移動人物<br>
 三顆按鍵:由左至右1、2、3選擇關卡<br>
 pause:暫停遊戲<br>
 
-<br>output:LED燈，七段顯示器，8X8顯示器，蜂鳴器<br>
+OUTPUT:LED燈，七段顯示器，8X8顯示器，蜂鳴器<br>
 LED燈:顯示血量<br>
 七段顯示器:顯示過了幾秒<br>
 8X8顯示器:顯示遊戲畫面<br>
