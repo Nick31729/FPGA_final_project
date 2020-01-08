@@ -4,13 +4,13 @@ FPGA_Final_Project
 Authors:<br>
 -------------
 107321013 107321043<br>
-
+<br>
 Input/Output unit:<br>
 ---------------------
 
 功能說明:<br>
 -----------
-紅色與藍色玩家對戰，先贏五球 或 在時間結束後最高分者獲勝。
+
 程式模組說明:<br>
 ------------
 *** 請說明各 I/O 變數接到哪個 FPGA I/O 裝置，例如: button, button2 -> 接到 4-bit SW<br><br>
