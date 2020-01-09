@@ -52,4 +52,4 @@ L1、L2、L3、pause : 接到紅色4-bit SW<br>
 *** 請加強說明程式邏輯<br>
 <br>Demo video:<br>
 ----------------
-[  要顯示的文字 ](  鏈接的地址 )<br>
+[ 實際影片 ](  https://drive.google.com/open?id=1bDPZdaXdy9TPSILRYz-iKI4iSlz8mOq6 )<br>
