@@ -372,7 +372,6 @@ endmodule
 ```
 符合的條件取補數才能點亮7段顯示器<br>
 
-*** 請加強說明程式邏輯<br>
 <br>Demo video:<br>
 ----------------
 [ 實際影片 ](  https://drive.google.com/open?id=1bDPZdaXdy9TPSILRYz-iKI4iSlz8mOq6 )<br>
