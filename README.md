@@ -6,7 +6,7 @@ Authors: <br>
 
 107321013 107321043<br>
 
-Input/Output unit:要放圖片<br>
+Input/Output unit:<br>
 ---------------------
 INPUT: <br> 
 clear,左,右<br>
