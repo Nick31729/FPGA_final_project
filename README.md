@@ -8,17 +8,24 @@ Authors: <br>
 
 Input/Output unit:要放圖片<br>
 ---------------------
-INPUT:  clear,左,右,三顆按鍵選關卡,最右邊pause<br>
+INPUT: <br> 
+clear,左,右<br>
 clear:清除版面，重置設定<br>
 左,右:移動人物<br>
+[ 圖1 ](  https://user-images.githubusercontent.com/59498380/72051840-f4e5bc00-32fe-11ea-8c09-dff5b544ec7f.jpg )<br>
+三顆按鍵選關卡,最右邊pause<br>
 三顆按鍵:由左至右1、2、3選擇關卡<br>
 pause:暫停遊戲<br>
-
+[ 圖2 ](  https://user-images.githubusercontent.com/59498380/72051837-f44d2580-32fe-11ea-93d6-be4e9794aac7.jpg )<br>
 OUTPUT:  LED燈，七段顯示器，8X8顯示器，蜂鳴器<br>
 LED燈:顯示血量<br>
+[ 圖3 ](  https://user-images.githubusercontent.com/59498380/72051843-f7481600-32fe-11ea-9734-466c9b8a29b3.jpg )<br>
 七段顯示器:顯示過了幾秒<br>
+[ 圖4 ](  https://user-images.githubusercontent.com/59498380/72051849-f911d980-32fe-11ea-9980-c854519f1123.jpg )<br>
 8X8顯示器:顯示遊戲畫面<br>
+[ 圖5 ](  https://user-images.githubusercontent.com/59498380/72051817-e8616380-32fe-11ea-8e73-0fd5c70ccd01.jpg )<br>
 蜂鳴器:左右移動和勝利失敗會發出聲音<br>
+[ 圖6 ](  https://user-images.githubusercontent.com/59498380/72051829-f0210800-32fe-11ea-9b7b-6ee3ba4a11a4.jpg )<br>
 
 <br>功能說明:<br>
 -----------
