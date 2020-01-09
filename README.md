@@ -8,8 +8,7 @@ Authors: <br>
 
 Input/Output unit:<br>
 ---------------------
-INPUT: <br> 
-clear,左,右<br>
+INPUT: clear,左,右<br>
 clear:清除版面，重置設定<br>
 左,右:移動人物<br>
 [ 圖1 ](  https://user-images.githubusercontent.com/59498380/72051840-f4e5bc00-32fe-11ea-8c09-dff5b544ec7f.jpg )<br>
